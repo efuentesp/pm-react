@@ -3,8 +3,10 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './features/App/App';
 import HomePage from './features/Home/Home';
+import RequireAuth from './features/Common/Auth/require_auth';
 import LoginPage from './features/Common/Auth/Login';
 import LogoutPage from './features/Common/Auth/Logout';
+import ForbiddenPage from './features/Common/Auth/Forbidden';
 import NotFoundPage from './features/Common/Pages/NotFound';
 
 import ClienteManagement from './features/Entities/Cliente/ClienteManagement';
@@ -31,7 +33,7 @@ export default (
     <Route path="/" component={App}>
       <IndexRoute component={HomePage}/>
 
-      <Route path="cliente_mgmnt" component={ClienteManagement} />
+      <Route path="cliente_mgmnt" component={RequireAuth(ClienteManagement)} />
       <Route path="cliente" component={ClienteCreate} />
       <Route path="cliente/edit/:id" component={ClienteEdit} />
       <Route path="cliente/delete/:id" component={ClienteDelete} />
@@ -49,6 +51,7 @@ export default (
 
     <Route path="/login" component={LoginPage}/>
     <Route path="/logout" component={LogoutPage}/>
+    <Route path="/forbidden" component={ForbiddenPage}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>
 );

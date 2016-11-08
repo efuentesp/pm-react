@@ -48,7 +48,7 @@ const Header = () => {
             </li>
             {/* Login/Logout icon */}
             <li>
-              <Link to="/login">
+              <Link to="/logout">
                 <em className="fa fa-power-off" />
               </Link>
             </li>

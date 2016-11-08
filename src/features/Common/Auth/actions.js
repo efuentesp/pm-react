@@ -53,9 +53,7 @@ export function logoutUser() {
   const request = axios({
     method: 'post',
     url: url,
-    headers: [
-      { 'Authorization': token }
-    ]
+    headers: { 'Authorization': 'Bearer ' + token }
   });
 
   return (dispatch) => {
@@ -63,10 +61,9 @@ export function logoutUser() {
       .then((res) => {
         dispatch(LogoutSuccess(res));
         localStorage.removeItem('token');
-        browserHistory.push("/login");
       })
       .catch(() => {
-        console.log("Logout Error!!");;
+        console.log("Logout Error!!");
       });
   };
 }

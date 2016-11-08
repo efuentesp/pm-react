@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import { logoutUser } from './actions';
@@ -17,7 +17,7 @@ class Logout extends Component {
           <div className="text-center mb-xl">
               <div className="text-lg mb-lg">Hasta luego</div>
               <p className="lead m0">Gracias por usar la aplicación.</p>
-              <p>Has salido de la aplicación exitosamente.</p>
+              <p>Ha salido de la aplicación exitosamente.</p>
           </div>
           <ul className="list-inline text-center text-sm mb-xl">
             <li><Link to="/" className="text-muted">Ir al Inicio</Link></li>
