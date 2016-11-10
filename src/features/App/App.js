@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { connect } from 'react-redux';
 
 import Header from '../Common/Layout/Header';
 import Sidebar from '../Common/Layout/Sidebar';
@@ -21,8 +22,8 @@ class App extends Component {
     return (
       <Sidebar
         avatar="/efp.jpg"
-        user_name="Edgar Felipe Fuentes Perea"
-        user_role="Administrador" >
+        user_name={this.props.auth.username}
+        user_role={this.props.auth.role} >
         <SidebarSection
           title="Principal" />
           <SidebarItem
@@ -79,6 +80,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.auth);
     return(
       <div className="wrapper">
         { this.renderHeader() }
@@ -91,7 +93,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
+  auth: PropTypes.object
 };
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps)(App);

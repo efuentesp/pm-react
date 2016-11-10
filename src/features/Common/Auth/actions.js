@@ -36,7 +36,7 @@ export function loginUser(username, password) {
   return (dispatch) => {
     request
       .then((res) => {
-        dispatch(LoginSuccess(res));
+        dispatch(LoginSuccess(res.data));
         localStorage.setItem('token', `${res.data.token}:${res.data.password}`);
         browserHistory.push("/");
       })
@@ -64,6 +64,7 @@ export function logoutUser() {
       })
       .catch(() => {
         console.log("Logout Error!!");
+        localStorage.removeItem('token');
       });
   };
 }

@@ -43,9 +43,9 @@ const Sidebar = ({children, avatar, user_name, user_role}) => {
 
 Sidebar.propTypes = {
   children: PropTypes.array.isRequired,
-  avatar: PropTypes.string.isRequired,
-  user_name: PropTypes.string.isRequired,
-  user_role: PropTypes.string.isRequired
+  avatar: PropTypes.string,
+  user_name: PropTypes.string,
+  user_role: PropTypes.string
 };
 
 export default Sidebar;

@@ -31,7 +31,7 @@ import RoleDelete from './features/Common/Security/Role/RoleDelete';
 export default (
   <Route>
     <Route path="/" component={App}>
-      <IndexRoute component={HomePage}/>
+      <IndexRoute component={RequireAuth(HomePage)}/>
 
       <Route path="cliente_mgmnt" component={RequireAuth(ClienteManagement)} />
       <Route path="cliente" component={ClienteCreate} />
