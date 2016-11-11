@@ -80,7 +80,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.auth);
+    console.log("App:render", this.props.auth);
     return(
       <div className="wrapper">
         { this.renderHeader() }

@@ -1,12 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-export default function(ComposedComponent) {
+export default function(role, ComposedComponent) {
   class Authentication extends Component {
 
     componentWillMount() {
-      console.log("RequireAuth:componentWillMount", this.props.auth);
-      if (!this.props.auth.authenticated) {
+      if (this.props.auth.authenticated) {
+        if(this.props.auth.role.indexOf(role) == -1) {
+          this.context.router.push('/forbidden');
+        }
+      } else {
         this.context.router.push('/login');
       }
     }

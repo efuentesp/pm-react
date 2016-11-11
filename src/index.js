@@ -9,7 +9,7 @@ import configureStore from './store/configureStore';
 import { syncHistoryWithStore } from 'react-router-redux';
 import ReduxToastr from 'react-redux-toastr';
 
-import { LoginSuccess } from './features/Common/Auth/actions';
+import { getSession } from './features/Common/Auth/actions';
 
 require('./favicon.ico');
 require('./assets/img/logo.png');
@@ -28,7 +28,8 @@ const store = configureStore();
 
 const token = localStorage.getItem('token');
 if (token) {
-  store.dispatch(LoginSuccess());
+  console.log(token);
+  store.dispatch(getSession());
 }
 
 // Create an enhanced history that syncs navigation events with the store

@@ -4,6 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './features/App/App';
 import HomePage from './features/Home/Home';
 import RequireAuth from './features/Common/Auth/require_auth';
+import RequireRole from './features/Common/Auth/require_role';
 import LoginPage from './features/Common/Auth/Login';
 import LogoutPage from './features/Common/Auth/Logout';
 import ForbiddenPage from './features/Common/Auth/Forbidden';
@@ -34,8 +35,8 @@ export default (
       <IndexRoute component={RequireAuth(HomePage)}/>
 
       <Route path="cliente_mgmnt" component={RequireAuth(ClienteManagement)} />
-      <Route path="cliente" component={ClienteCreate} />
-      <Route path="cliente/edit/:id" component={ClienteEdit} />
+      <Route path="cliente" component={RequireRole('admin', ClienteCreate)} />
+      <Route path="cliente/edit/:id" component={RequireRole('student', ClienteEdit)} />
       <Route path="cliente/delete/:id" component={ClienteDelete} />
 
       <Route path="orden_mgmnt" component={OrdenManagement} />

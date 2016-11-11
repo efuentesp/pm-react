@@ -9,7 +9,7 @@ const Forbidden = () => {
         <div className="text-center mb-xl">
             <div className="text-lg mb-lg">Sin Acceso</div>
             <p className="lead m0">No cuenta con la autorización para ver la información solicitada.</p>
-            <p>Intente entrar al sitio con su usuario.</p>
+            <p>Intente entrar al sitio con otro usuario.</p>
         </div>
         <ul className="list-inline text-center text-sm mb-xl">
           <li><Link to="/" className="text-muted">Ir al Inicio</Link></li>
